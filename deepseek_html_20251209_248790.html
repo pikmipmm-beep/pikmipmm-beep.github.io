@@ -1,0 +1,12 @@
+<button id="themeToggle">Сменить тему</button>
+
+<script>
+    // Код для смены темы
+    const toggleBtn = document.getElementById('themeToggle');
+    toggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('dark-theme');
+        this.textContent = document.body.classList.contains('dark-theme') 
+            ? 'Светлая тема' 
+            : 'Темная тема';
+    });
+</script>
