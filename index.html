@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>QQVK CASINO - Космическое казино</title>
+    <title>QQVK NFT CASINO - Космическое казино с NFT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -25,7 +25,6 @@
             position: relative;
         }
 
-        /* Анимированный фон */
         .bg-animation {
             position: fixed;
             top: 0;
@@ -45,16 +44,16 @@
 
         .container {
             width: 100%;
-            max-width: 1400px;
+            max-width: 1600px;
             display: flex;
             flex-direction: column;
             align-items: center;
             z-index: 1;
+            gap: 30px;
         }
 
         header {
             text-align: center;
-            margin-bottom: 40px;
             padding: 25px;
             width: 100%;
             background: rgba(0, 0, 0, 0.5);
@@ -95,11 +94,6 @@
             animation: spin 20s infinite linear;
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
         h1 {
             font-size: 52px;
             font-weight: 800;
@@ -113,30 +107,14 @@
             animation: shine 3s infinite linear;
         }
 
-        @keyframes shine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .subtitle {
-            font-size: 22px;
-            color: #a0e7ff;
-            margin-top: 10px;
-            font-weight: 300;
-            letter-spacing: 1px;
-        }
-
         .main-content {
-            display: flex;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
             width: 100%;
-            gap: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
         }
 
         .game-area {
-            flex: 1;
-            min-width: 350px;
             background: rgba(10, 15, 30, 0.8);
             border-radius: 25px;
             padding: 30px;
@@ -145,26 +123,89 @@
             border: 1px solid rgba(0, 136, 204, 0.2);
             display: flex;
             flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease;
+            gap: 25px;
         }
 
-        .game-area:hover {
-            transform: translateY(-5px);
+        .rocket-section {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 20px;
+            height: 600px;
         }
 
         .rocket-container {
-            width: 100%;
-            height: 550px;
             position: relative;
             overflow: hidden;
             border-radius: 20px;
             background: linear-gradient(180deg, #000428 0%, #004e92 50%, #000428 100%);
-            margin-bottom: 35px;
             box-shadow: 
                 inset 0 0 100px rgba(0, 0, 0, 0.9),
                 0 0 50px rgba(0, 136, 204, 0.3);
             border: 2px solid rgba(0, 136, 204, 0.1);
+        }
+
+        .nft-preview {
+            background: rgba(0, 20, 40, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            border: 1px solid rgba(0, 136, 204, 0.3);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .nft-preview h3 {
+            color: #00ccff;
+            text-align: center;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .current-nft {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .nft-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid rgba(0, 204, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .nft-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .nft-info {
+            text-align: center;
+        }
+
+        .nft-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #00ffaa;
+            margin-bottom: 5px;
+        }
+
+        .nft-value {
+            font-size: 16px;
+            color: #ffcc00;
+            font-weight: 600;
+        }
+
+        .nft-collection {
+            font-size: 14px;
+            color: #a0e7ff;
+            opacity: 0.8;
         }
 
         .mountain {
@@ -175,24 +216,12 @@
             background: linear-gradient(to top, #0a1929 0%, #1a3a5f 100%);
             border-radius: 50% 50% 0 0;
             left: -10%;
-            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.8);
-        }
-
-        .mountain::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: 30%;
-            width: 40%;
-            height: 40px;
-            background: linear-gradient(to top, #1a3a5f 0%, #2a5a8f 100%);
-            border-radius: 50% 50% 0 0;
         }
 
         .rocket {
             position: absolute;
             bottom: 180px;
-            left: 50%;
+            left: 30%;
             transform: translateX(-50%);
             width: 100px;
             height: 220px;
@@ -212,47 +241,6 @@
                 inset 0 10px 20px rgba(255, 255, 255, 0.2);
         }
 
-        .rocket-fin-left, .rocket-fin-right {
-            position: absolute;
-            bottom: 0;
-            width: 40px;
-            height: 80px;
-            background: linear-gradient(45deg, #cc0000 0%, #ff6600 100%);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .rocket-fin-left {
-            left: -25px;
-            transform: skewY(-25deg) rotate(-5deg);
-        }
-
-        .rocket-fin-right {
-            right: -25px;
-            transform: skewY(25deg) rotate(5deg);
-        }
-
-        .rocket-window {
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 50px;
-            background: radial-gradient(circle at 30% 30%, #00ccff, #0088cc);
-            border-radius: 50%;
-            box-shadow: 
-                0 0 25px rgba(0, 204, 255, 1),
-                inset 0 0 15px rgba(255, 255, 255, 0.5);
-            border: 3px solid rgba(255, 255, 255, 0.8);
-            animation: windowGlow 2s infinite alternate;
-        }
-
-        @keyframes windowGlow {
-            0% { box-shadow: 0 0 20px rgba(0, 204, 255, 0.8); }
-            100% { box-shadow: 0 0 40px rgba(0, 204, 255, 1); }
-        }
-
         .rocket-flame {
             position: absolute;
             bottom: -80px;
@@ -264,19 +252,6 @@
             border-radius: 50% 50% 0 0;
             filter: blur(10px);
             animation: flame 0.1s infinite alternate;
-        }
-
-        @keyframes flame {
-            0% { 
-                height: 80px; 
-                width: 50px;
-                background: linear-gradient(to bottom, #ffff00 0%, #ff9900 30%, #ff3300 70%, transparent 100%); 
-            }
-            100% { 
-                height: 100px; 
-                width: 60px;
-                background: linear-gradient(to bottom, #ffffff 0%, #ffff00 30%, #ff6600 70%, transparent 100%); 
-            }
         }
 
         .stars {
@@ -295,140 +270,70 @@
             animation: twinkle 3s infinite alternate;
         }
 
-        .comet {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: white;
-            border-radius: 50%;
-            box-shadow: 0 0 10px white;
-            animation: cometFly 10s infinite linear;
-        }
-
-        @keyframes cometFly {
-            0% {
-                transform: translateX(100vw) translateY(-100px);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(-100px) translateY(100vh);
-                opacity: 0;
-            }
-        }
-
         .controls {
-            width: 100%;
             display: flex;
             flex-direction: column;
             gap: 25px;
         }
 
-        .bet-section, .balance-section {
+        .bet-controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .bet-section {
             background: rgba(0, 20, 40, 0.6);
             border-radius: 20px;
             padding: 25px;
             border: 1px solid rgba(0, 136, 204, 0.3);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
         }
 
-        .bet-section:hover, .balance-section:hover {
-            border-color: rgba(0, 204, 255, 0.5);
-            box-shadow: 0 10px 30px rgba(0, 136, 204, 0.2);
-        }
-
-        .bet-section h3, .balance-section h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #00ccff;
+        .custom-bet {
             display: flex;
-            align-items: center;
-            gap: 12px;
-            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .bet-amount {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 25px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.4);
+        .custom-bet input {
+            padding: 18px;
             border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .bet-amount span {
+            border: 2px solid rgba(0, 136, 204, 0.5);
+            background: rgba(0, 0, 0, 0.4);
+            color: white;
             font-size: 20px;
-            font-weight: 500;
+            font-weight: 700;
+            text-align: center;
+            transition: all 0.3s;
         }
 
-        .bet-amount .value {
-            font-size: 36px;
-            font-weight: 800;
-            color: #00ffaa;
-            text-shadow: 0 0 15px rgba(0, 255, 170, 0.7);
-            animation: pulseValue 2s infinite;
+        .custom-bet input:focus {
+            outline: none;
+            border-color: #00ccff;
+            box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
         }
 
-        @keyframes pulseValue {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .bet-buttons {
+        .bet-quick {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
+            gap: 10px;
         }
 
         .bet-btn {
-            padding: 15px 10px;
+            padding: 15px;
             border: none;
             border-radius: 12px;
             background: linear-gradient(135deg, #0088cc 0%, #004488 100%);
             color: white;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: 17px;
-            letter-spacing: 1px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .bet-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: 0.5s;
-        }
-
-        .bet-btn:hover::before {
-            left: 100%;
+            transition: all 0.3s;
+            font-size: 16px;
         }
 
         .bet-btn:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.5);
-            background: linear-gradient(135deg, #00aaff 0%, #0066cc 100%);
-        }
-
-        .bet-btn.active {
-            background: linear-gradient(135deg, #00cc66 0%, #008844 100%);
-            box-shadow: 0 0 25px rgba(0, 204, 102, 0.7);
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.4);
         }
 
         .game-buttons {
@@ -441,292 +346,220 @@
             padding: 22px;
             border: none;
             border-radius: 15px;
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 800;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 15px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .game-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255,255,255,0.1) 50%, transparent 70%);
-            transform: translateX(-100%);
-            transition: transform 0.6s;
-            z-index: -1;
-        }
-
-        .game-btn:hover::before {
-            transform: translateX(100%);
         }
 
         .launch-btn {
             background: linear-gradient(135deg, #ff3300 0%, #ff9900 100%);
             color: white;
-            box-shadow: 0 10px 25px rgba(255, 50, 0, 0.3);
-        }
-
-        .launch-btn:hover:not(:disabled) {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(255, 50, 0, 0.5);
-            background: linear-gradient(135deg, #ff5500 0%, #ffbb00 100%);
         }
 
         .cashout-btn {
             background: linear-gradient(135deg, #00cc66 0%, #008844 100%);
             color: white;
-            box-shadow: 0 10px 25px rgba(0, 204, 102, 0.3);
         }
 
-        .cashout-btn:hover:not(:disabled) {
-            transform: translateY(-8px) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 204, 102, 0.5);
-            background: linear-gradient(135deg, #00ee77 0%, #00aa55 100%);
-        }
-
-        .game-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        .balance-display {
+        .stats-area {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-direction: column;
+            gap: 25px;
         }
 
-        .balance-display span {
-            font-size: 22px;
-            font-weight: 500;
-        }
-
-        .balance-value {
-            font-size: 40px;
-            font-weight: 800;
-            color: #00ffaa;
-            text-shadow: 0 0 15px rgba(0, 255, 170, 0.7);
-            animation: balanceGlow 3s infinite alternate;
-        }
-
-        @keyframes balanceGlow {
-            0% { text-shadow: 0 0 10px rgba(0, 255, 170, 0.5); }
-            100% { text-shadow: 0 0 20px rgba(0, 255, 170, 1); }
+        .balance-card {
+            background: rgba(10, 15, 30, 0.8);
+            border-radius: 25px;
+            padding: 25px;
+            border: 1px solid rgba(0, 136, 204, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         .multiplier-display {
-            font-size: 24px;
             text-align: center;
-            margin-top: 15px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
             border: 2px solid rgba(255, 204, 0, 0.3);
-            box-shadow: 0 10px 25px rgba(255, 204, 0, 0.2);
-            width: 100%;
-            animation: multiplierBorder 2s infinite alternate;
-        }
-
-        @keyframes multiplierBorder {
-            0% { border-color: rgba(255, 204, 0, 0.3); }
-            100% { border-color: rgba(255, 255, 0, 0.6); }
         }
 
         .multiplier-value {
             font-size: 56px;
             font-weight: 900;
             color: #ffcc00;
-            text-shadow: 
-                0 0 20px rgba(255, 204, 0, 0.8),
-                0 0 40px rgba(255, 204, 0, 0.4);
-            margin-top: 10px;
-            letter-spacing: 3px;
-            animation: multiplierPulse 1s infinite alternate;
+            text-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
         }
 
-        @keyframes multiplierPulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        .stats-area {
-            flex: 0 0 350px;
+        .inventory {
             background: rgba(10, 15, 30, 0.8);
             border-radius: 25px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(15px);
+            padding: 25px;
             border: 1px solid rgba(0, 136, 204, 0.2);
-            transition: transform 0.3s ease;
         }
 
-        .stats-area:hover {
-            transform: translateY(-5px);
-        }
-
-        .stats-area h2 {
-            font-size: 32px;
-            margin-bottom: 25px;
+        .inventory h3 {
             color: #00ccff;
-            text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             gap: 15px;
-            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .inventory-item {
+            background: rgba(0, 20, 40, 0.6);
+            border-radius: 12px;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .inventory-item:hover {
+            transform: translateY(-5px);
+            border-color: #00ccff;
+        }
+
+        .inventory-item img {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            object-fit: cover;
+        }
+
+        .inventory-item span {
+            font-size: 12px;
+            color: #ffffff;
+            display: block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
         .history {
-            margin-top: 30px;
-        }
-
-        .history h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #00ccff;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
+            background: rgba(10, 15, 30, 0.8);
+            border-radius: 25px;
+            padding: 25px;
+            border: 1px solid rgba(0, 136, 204, 0.2);
         }
 
         .history-list {
-            list-style-type: none;
-            max-height: 250px;
+            list-style: none;
+            max-height: 200px;
             overflow-y: auto;
-            padding-right: 15px;
-        }
-
-        .history-list::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        .history-list::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-        }
-
-        .history-list::-webkit-scrollbar-thumb {
-            background: linear-gradient(135deg, #0088cc, #00ccff);
-            border-radius: 10px;
-            box-shadow: inset 0 0 5px rgba(255,255,255,0.3);
         }
 
         .history-item {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            margin-bottom: 12px;
-            background: rgba(0, 20, 40, 0.6);
-            border-radius: 12px;
-            border-left: 5px solid #0088cc;
-            transition: all 0.3s ease;
-            animation: slideIn 0.5s ease-out;
-        }
-
-        @keyframes slideIn {
-            from { 
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to { 
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .history-item:hover {
-            transform: translateX(5px);
-            background: rgba(0, 30, 60, 0.7);
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
         }
 
         .history-item.win {
-            border-left-color: #00cc66;
-            background: linear-gradient(90deg, rgba(0, 204, 102, 0.1) 0%, transparent 100%);
+            border-left: 4px solid #00cc66;
         }
 
         .history-item.loss {
-            border-left-color: #ff3300;
-            background: linear-gradient(90deg, rgba(255, 51, 0, 0.1) 0%, transparent 100%);
+            border-left: 4px solid #ff3300;
         }
 
-        .history-multiplier {
-            font-weight: 800;
-            color: #ffcc00;
-            text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
-            font-size: 18px;
+        .history-item.nft {
+            border-left: 4px solid #ffcc00;
         }
 
-        .instructions {
-            margin-top: 35px;
-            background: rgba(0, 20, 40, 0.6);
-            border-radius: 20px;
-            padding: 25px;
-            border: 1px solid rgba(0, 136, 204, 0.3);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-        }
-
-        .instructions h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #00ccff;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            text-shadow: 0 0 10px rgba(0, 204, 255, 0.5);
-        }
-
-        .instructions p {
-            line-height: 1.7;
-            margin-bottom: 12px;
-            color: #ccccff;
-            padding-left: 10px;
-            position: relative;
-        }
-
-        .instructions p::before {
-            content: '▶';
-            position: absolute;
-            left: -10px;
-            color: #00ccff;
-            font-size: 12px;
-        }
-
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            padding: 25px;
-            color: #a0e7ff;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
         }
 
-        .footer p {
-            margin-bottom: 10px;
-            line-height: 1.6;
+        .modal-content {
+            background: rgba(10, 15, 30, 0.95);
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            border: 2px solid rgba(0, 204, 255, 0.5);
+            box-shadow: 0 0 50px rgba(0, 204, 255, 0.3);
+        }
+
+        .modal h2 {
+            color: #00ffaa;
+            margin-bottom: 20px;
+            font-size: 32px;
+        }
+
+        .modal img {
+            width: 200px;
+            height: 200px;
+            border-radius: 15px;
+            margin: 20px auto;
+            border: 3px solid #00ccff;
+        }
+
+        .modal p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #ffffff;
+        }
+
+        .close-modal {
+            margin-top: 25px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #0088cc 0%, #004488 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .nft-floating {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid rgba(255, 204, 0, 0.5);
+            box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+            animation: floatUp 4s ease-out forwards;
+            z-index: 5;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) scale(0.5);
+                opacity: 0;
+            }
         }
 
         .explosion {
@@ -734,96 +567,64 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,100,0,0.9) 0%, rgba(255,50,0,0.7) 30%, rgba(255,0,0,0) 70%);
+            background: radial-gradient(circle, rgba(255,100,0,0.9) 0%, rgba(255,50,0,0) 70%);
             opacity: 0;
             pointer-events: none;
             z-index: 20;
-            filter: blur(20px);
         }
 
-        .spark {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ffff00;
-            border-radius: 50%;
-            animation: sparkFly 1s forwards;
+        @keyframes flame {
+            0% { height: 80px; }
+            100% { height: 100px; }
         }
 
-        @keyframes sparkFly {
-            0% {
-                transform: translate(0, 0) scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: translate(var(--tx), var(--ty)) scale(0);
-                opacity: 0;
-            }
-        }
-
-        /* Анимации */
         @keyframes twinkle {
-            0% { opacity: 0.3; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-            100% { opacity: 0.3; transform: scale(1); }
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
 
         @keyframes float {
-            0% { transform: translateY(0) translateX(0); }
-            25% { transform: translateY(-20px) translateX(10px); }
-            50% { transform: translateY(0) translateX(20px); }
-            75% { transform: translateY(20px) translateX(10px); }
-            100% { transform: translateY(0) translateX(0); }
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-20px) translateX(10px); }
         }
 
-        @keyframes rocketShake {
-            0% { transform: translateX(-50%) rotate(0deg); }
-            25% { transform: translateX(-50%) rotate(-2deg); }
-            50% { transform: translateX(-50%) rotate(2deg); }
-            75% { transform: translateX(-50%) rotate(-2deg); }
-            100% { transform: translateX(-50%) rotate(0deg); }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes shine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
         }
 
         /* Адаптивность */
         @media (max-width: 1200px) {
             .main-content {
-                flex-direction: column;
-                align-items: center;
+                grid-template-columns: 1fr;
             }
             
-            .stats-area {
-                width: 100%;
-                max-width: 600px;
+            .rocket-section {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .nft-preview {
+                height: 300px;
             }
         }
 
         @media (max-width: 768px) {
-            h1 {
-                font-size: 36px;
-            }
-            
-            .logo-icon {
-                font-size: 42px;
-            }
-            
-            .rocket-container {
-                height: 400px;
+            .bet-controls {
+                grid-template-columns: 1fr;
             }
             
             .game-buttons {
                 flex-direction: column;
             }
             
-            .bet-buttons {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .multiplier-value {
-                font-size: 42px;
-            }
-            
-            .balance-value {
-                font-size: 32px;
+            h1 {
+                font-size: 36px;
             }
         }
     </style>
@@ -834,106 +635,128 @@
     <div class="container">
         <header>
             <div class="logo">
-                <i class="fas fa-rocket logo-icon"></i>
-                <h1>QQVK CASINO</h1>
+                <i class="fas fa-gem logo-icon"></i>
+                <h1>QQVK NFT CASINO</h1>
             </div>
-            <div class="subtitle">Космическое казино с криптовалютой TON</div>
+            <div class="subtitle">Космическое казино с NFT-подарками на TON</div>
         </header>
         
         <div class="main-content">
             <div class="game-area">
-                <div class="rocket-container" id="rocketContainer">
-                    <div class="stars" id="stars"></div>
-                    <div class="mountain"></div>
-                    <div class="rocket" id="rocket">
-                        <div class="rocket-body">
-                            <div class="rocket-fin-left"></div>
-                            <div class="rocket-fin-right"></div>
-                            <div class="rocket-window"></div>
-                        </div>
-                        <div class="rocket-flame"></div>
-                    </div>
-                </div>
-                
-                <div class="multiplier-display">
-                    <div>ТЕКУЩИЙ МНОЖИТЕЛЬ:</div>
-                    <div class="multiplier-value" id="multiplierValue">x1.00</div>
-                </div>
-                
-                <div class="controls">
-                    <div class="bet-section">
-                        <h3><i class="fas fa-coins"></i> СТАВКА</h3>
-                        <div class="bet-amount">
-                            <span>Сумма ставки:</span>
-                            <span class="value" id="betAmount">5 TON</span>
-                        </div>
-                        
-                        <div class="bet-buttons">
-                            <button class="bet-btn" data-bet="1">1 TON</button>
-                            <button class="bet-btn" data-bet="2">2 TON</button>
-                            <button class="bet-btn active" data-bet="5">5 TON</button>
-                            <button class="bet-btn" data-bet="10">10 TON</button>
-                            <button class="bet-btn" data-bet="25">25 TON</button>
-                            <button class="bet-btn" data-bet="50">50 TON</button>
-                            <button class="bet-btn" data-bet="100">100 TON</button>
-                            <button class="bet-btn" data-bet="500">500 TON</button>
-                        </div>
-                        
-                        <div class="game-buttons">
-                            <button class="game-btn launch-btn" id="launchBtn">
-                                <i class="fas fa-rocket"></i> ЗАПУСТИТЬ РАКЕТУ
-                            </button>
-                            <button class="game-btn cashout-btn" id="cashoutBtn" disabled>
-                                <i class="fas fa-money-bill-wave"></i> ЗАБРАТЬ ВЫИГРЫШ
-                            </button>
+                <div class="rocket-section">
+                    <div class="rocket-container" id="rocketContainer">
+                        <div class="stars" id="stars"></div>
+                        <div class="mountain"></div>
+                        <div class="rocket" id="rocket">
+                            <div class="rocket-body">
+                                <div class="rocket-flame"></div>
+                            </div>
                         </div>
                     </div>
                     
-                    <div class="balance-section">
-                        <h3><i class="fas fa-wallet"></i> БАЛАНС</h3>
-                        <div class="balance-display">
-                            <span>Ваш баланс:</span>
-                            <span class="balance-value" id="balanceValue">1000 TON</span>
+                    <div class="nft-preview">
+                        <h3>🎁 СЛУЧАЙНЫЙ NFT-ПОДАРОК</h3>
+                        <div class="current-nft" id="currentNft">
+                            <div class="nft-image">
+                                <img id="nftGif" src="https://via.placeholder.com/200x200/0088cc/ffffff?text=QQVK+NFT" alt="NFT Preview">
+                            </div>
+                            <div class="nft-info">
+                                <div class="nft-name" id="nftName">Выберите NFT...</div>
+                                <div class="nft-value" id="nftValue">~ 0 TON</div>
+                                <div class="nft-collection" id="nftCollection">Коллекция</div>
+                            </div>
+                            <div style="font-size: 14px; color: #a0e7ff; text-align: center;">
+                                💎 Ставка от 2 TON для получения NFT
+                            </div>
                         </div>
-                        <div class="balance-display">
-                            <span>Возможный выигрыш:</span>
-                            <span class="value" id="potentialWin">0.00 TON</span>
+                    </div>
+                </div>
+                
+                <div class="controls">
+                    <div class="bet-controls">
+                        <div class="bet-section custom-bet">
+                            <h3>💰 ВВЕДИТЕ СТАВКУ</h3>
+                            <input type="number" id="customBet" min="1" max="1000" value="5" step="0.1">
+                            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+                                <button onclick="adjustBet(-1)" class="bet-btn">-1 TON</button>
+                                <button onclick="adjustBet(-0.1)" class="bet-btn">-0.1</button>
+                                <button onclick="adjustBet(0.1)" class="bet-btn">+0.1</button>
+                                <button onclick="adjustBet(1)" class="bet-btn">+1 TON</button>
+                            </div>
                         </div>
+                        
+                        <div class="bet-section">
+                            <h3>⚡ БЫСТРЫЕ СТАВКИ</h3>
+                            <div class="bet-quick">
+                                <button class="bet-btn" onclick="setBet(1)">1 TON</button>
+                                <button class="bet-btn" onclick="setBet(2)">2 TON</button>
+                                <button class="bet-btn active" onclick="setBet(5)">5 TON</button>
+                                <button class="bet-btn" onclick="setBet(10)">10 TON</button>
+                                <button class="bet-btn" onclick="setBet(25)">25 TON</button>
+                                <button class="bet-btn" onclick="setBet(50)">50 TON</button>
+                                <button class="bet-btn" onclick="setBet(100)">100 TON</button>
+                                <button class="bet-btn" onclick="setBet(500)">500 TON</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-buttons">
+                        <button class="game-btn launch-btn" id="launchBtn">
+                            <i class="fas fa-rocket"></i> ЗАПУСТИТЬ РАКЕТУ
+                        </button>
+                        <button class="game-btn cashout-btn" id="cashoutBtn" disabled>
+                            <i class="fas fa-gift"></i> ЗАБРАТЬ NFT
+                        </button>
                     </div>
                 </div>
             </div>
             
             <div class="stats-area">
-                <h2><i class="fas fa-chart-line"></i> СТАТИСТИКА</h2>
+                <div class="balance-card">
+                    <h3>👛 ВАШ БАЛАНС</h3>
+                    <div class="multiplier-display" style="margin: 20px 0;">
+                        <div style="font-size: 18px; color: #00ffaa;">Доступно:</div>
+                        <div class="multiplier-value" id="balanceValue">1000 TON</div>
+                    </div>
+                    
+                    <div class="multiplier-display">
+                        <div>ТЕКУЩИЙ МНОЖИТЕЛЬ</div>
+                        <div class="multiplier-value" id="multiplierValue">x1.00</div>
+                        <div style="font-size: 16px; margin-top: 10px;">
+                            Выигрыш: <span id="potentialWin">0.00 TON</span>
+                        </div>
+                    </div>
+                </div>
                 
-                <div class="multiplier-display" style="margin-bottom: 25px;">
-                    <div>РЕКОРДНЫЙ МНОЖИТЕЛЬ:</div>
-                    <div class="multiplier-value" id="recordMultiplier">x0.00</div>
+                <div class="inventory">
+                    <h3>📦 ВАШ ИНВЕНТАРЬ NFT</h3>
+                    <div class="inventory-grid" id="inventoryGrid">
+                        <!-- NFT будут добавляться сюда -->
+                    </div>
                 </div>
                 
                 <div class="history">
-                    <h3><i class="fas fa-history"></i> ИСТОРИЯ ИГР</h3>
+                    <h3>📜 ИСТОРИЯ ИГР</h3>
                     <ul class="history-list" id="historyList">
-                        <!-- История будет заполняться динамически -->
+                        <!-- История будет заполняться здесь -->
                     </ul>
-                </div>
-                
-                <div class="instructions">
-                    <h3><i class="fas fa-info-circle"></i> КАК ИГРАТЬ</h3>
-                    <p>1. Выберите сумму ставки в TON</p>
-                    <p>2. Нажмите "ЗАПУСТИТЬ РАКЕТУ" чтобы начать игру</p>
-                    <p>3. Ракета начнет взлетать, а множитель - увеличиваться</p>
-                    <p>4. Нажмите "ЗАБРАТЬ ВЫИГРЫШ" до того как ракета взорвется</p>
-                    <p>5. Если вы успели забрать выигрыш, вы получаете ставку × текущий множитель</p>
-                    <p>6. Если ракета взорвется раньше, вы теряете ставку</p>
                 </div>
             </div>
         </div>
-        
-        <div class="footer">
-            <p>Демо-версия игры QQVK CASINO. Это имитатор казино для развлечения, без использования реальных средств.</p>
-            <p>Используемая валюта: TON (The Open Network)</p>
-            <p>© 2023 QQVK CASINO. Все права защищены.</p>
+    </div>
+
+    <!-- Модальное окно для выигрыша NFT -->
+    <div class="modal" id="nftModal">
+        <div class="modal-content">
+            <h2>🎉 ПОЗДРАВЛЯЕМ!</h2>
+            <div class="nft-image" style="margin: 20px auto;">
+                <img id="modalNftImage" src="" alt="Выигранный NFT">
+            </div>
+            <h3 id="modalNftName"></h3>
+            <p>Вы успешно получили NFT!</p>
+            <p>Стоимость: <span id="modalNftValue" style="color: #ffcc00;"></span></p>
+            <p>Коллекция: <span id="modalNftCollection"></span></p>
+            <button class="close-modal" onclick="closeModal()">ЗАКРЫТЬ</button>
         </div>
     </div>
 
@@ -944,211 +767,325 @@
         let currentMultiplier = 1.00;
         let isFlying = false;
         let flightInterval;
-        let explosionTimeout;
-        let recordMultiplier = 0;
+        let currentNft = null;
+        let userInventory = [];
         let gameHistory = [];
-        
+        let recordMultiplier = 0;
+
+        // База данных NFT (реальные NFT из TON)
+        const nftDatabase = [
+            {
+                id: 1,
+                name: "Stoop Dogg #482955",
+                value: 19,
+                collection: "Stoop Dogg",
+                gif: "https://img.cdn.ton.diamonds/preview/482955.gif",
+                markets: {
+                    getgems: 18.5,
+                    ton_diamonds: 19.2,
+                    fragment: 19.0
+                }
+            },
+            {
+                id: 2,
+                name: "Desk Calendar #71663",
+                value: 2.29,
+                collection: "Desk Calendar",
+                gif: "https://img.cdn.ton.diamonds/preview/71663.gif",
+                markets: {
+                    getgems: 2.3,
+                    ton_diamonds: 2.28,
+                    fragment: 2.29
+                }
+            },
+            {
+                id: 3,
+                name: "Perfume Bottle #1247",
+                value: 90,
+                collection: "Perfume Bottle",
+                gif: "https://img.cdn.ton.diamonds/preview/1247.gif",
+                markets: {
+                    getgems: 89.5,
+                    ton_diamonds: 90.5,
+                    fragment: 90.0
+                }
+            },
+            {
+                id: 4,
+                name: "Lol Pop #426062",
+                value: 2.29,
+                collection: "Lol Pop",
+                gif: "https://img.cdn.ton.diamonds/preview/426062.gif",
+                markets: {
+                    getgems: 2.28,
+                    ton_diamonds: 2.3,
+                    fragment: 2.29
+                }
+            },
+            {
+                id: 5,
+                name: "Instant Ramen #221988",
+                value: 2.29,
+                collection: "Instant Ramen",
+                gif: "https://img.cdn.ton.diamonds/preview/221988.gif",
+                markets: {
+                    getgems: 2.27,
+                    ton_diamonds: 2.31,
+                    fragment: 2.29
+                }
+            },
+            {
+                id: 6,
+                name: "Lock Bag #5246",
+                value: 220,
+                collection: "Lock Bag",
+                gif: "https://img.cdn.ton.diamonds/preview/5246.gif",
+                markets: {
+                    getgems: 219.5,
+                    ton_diamonds: 220.5,
+                    fragment: 220.0
+                }
+            },
+            {
+                id: 7,
+                name: "Desk Calendar #327270",
+                value: 2.29,
+                collection: "Desk Calendar",
+                gif: "https://img.cdn.ton.diamonds/preview/327270.gif",
+                markets: {
+                    getgems: 2.3,
+                    ton_diamonds: 2.28,
+                    fragment: 2.29
+                }
+            },
+            {
+                id: 8,
+                name: "Signet Ring #14706",
+                value: 44,
+                collection: "Signet Ring",
+                gif: "https://img.cdn.ton.diamonds/preview/14706.gif",
+                markets: {
+                    getgems: 43.5,
+                    ton_diamonds: 44.2,
+                    fragment: 44.0
+                }
+            },
+            {
+                id: 9,
+                name: "Stoop Dogg #166611",
+                value: 6.66,
+                collection: "Stoop Dogg",
+                gif: "https://img.cdn.ton.diamonds/preview/166611.gif",
+                markets: {
+                    getgems: 6.6,
+                    ton_diamonds: 6.7,
+                    fragment: 6.66
+                }
+            },
+            {
+                id: 10,
+                name: "Lush Bouquet #6206",
+                value: 50,
+                collection: "Lush Bouquet",
+                gif: "https://img.cdn.ton.diamonds/preview/6206.gif",
+                markets: {
+                    getgems: 49.5,
+                    ton_diamonds: 50.2,
+                    fragment: 50.0
+                }
+            }
+        ];
+
         // DOM элементы
         const rocket = document.getElementById('rocket');
         const rocketContainer = document.getElementById('rocketContainer');
-        const stars = document.getElementById('stars');
         const balanceElement = document.getElementById('balanceValue');
-        const betAmountElement = document.getElementById('betAmount');
         const multiplierElement = document.getElementById('multiplierValue');
         const potentialWinElement = document.getElementById('potentialWin');
         const launchBtn = document.getElementById('launchBtn');
         const cashoutBtn = document.getElementById('cashoutBtn');
-        const recordMultiplierElement = document.getElementById('recordMultiplier');
+        const customBetInput = document.getElementById('customBet');
+        const nftGif = document.getElementById('nftGif');
+        const nftName = document.getElementById('nftName');
+        const nftValue = document.getElementById('nftValue');
+        const nftCollection = document.getElementById('nftCollection');
+        const inventoryGrid = document.getElementById('inventoryGrid');
         const historyList = document.getElementById('historyList');
-        const betButtons = document.querySelectorAll('.bet-btn');
-        const bgAnimation = document.getElementById('bgAnimation');
-        
-        // Создание анимированного фона
-        function createBackground() {
-            bgAnimation.innerHTML = '';
+        const nftModal = document.getElementById('nftModal');
+
+        // Инициализация
+        function init() {
+            updateBalanceDisplay();
+            updateMultiplierDisplay();
+            loadInventory();
+            createStars();
+            selectRandomNft();
             
-            // Частицы
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.classList.add('particle');
-                
-                const size = Math.random() * 200 + 50;
-                const top = Math.random() * 100;
-                const left = Math.random() * 100;
-                const delay = Math.random() * 15;
-                const duration = Math.random() * 20 + 10;
-                
-                particle.style.width = `${size}px`;
-                particle.style.height = `${size}px`;
-                particle.style.top = `${top}%`;
-                particle.style.left = `${left}%`;
-                particle.style.animationDelay = `${delay}s`;
-                particle.style.animationDuration = `${duration}s`;
-                particle.style.opacity = Math.random() * 0.1 + 0.05;
-                
-                bgAnimation.appendChild(particle);
+            // Загрузка сохраненных данных
+            const savedBalance = localStorage.getItem('qqvk_balance');
+            const savedInventory = localStorage.getItem('qqvk_inventory');
+            
+            if (savedBalance) {
+                balance = parseFloat(savedBalance);
+                updateBalanceDisplay();
             }
             
-            // Кометы
-            for (let i = 0; i < 5; i++) {
-                const comet = document.createElement('div');
-                comet.classList.add('comet');
-                
-                const delay = Math.random() * 20;
-                const duration = Math.random() * 5 + 5;
-                
-                comet.style.animationDelay = `${delay}s`;
-                comet.style.animationDuration = `${duration}s`;
-                
-                bgAnimation.appendChild(comet);
+            if (savedInventory) {
+                userInventory = JSON.parse(savedInventory);
+                updateInventoryDisplay();
             }
         }
-        
-        // Создание звездного неба
+
+        // Создание звезд
         function createStars() {
+            const stars = document.getElementById('stars');
             stars.innerHTML = '';
-            for (let i = 0; i < 150; i++) {
+            for (let i = 0; i < 100; i++) {
                 const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // Случайный размер и позиция
-                const size = Math.random() * 4 + 1;
-                const top = Math.random() * 100;
-                const left = Math.random() * 100;
-                const delay = Math.random() * 3;
-                const duration = Math.random() * 2 + 1;
-                
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.top = `${top}%`;
-                star.style.left = `${left}%`;
-                star.style.animationDelay = `${delay}s`;
-                star.style.animationDuration = `${duration}s`;
-                
+                star.className = 'star';
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.width = `${Math.random() * 3 + 1}px`;
+                star.style.height = star.style.width;
+                star.style.animationDelay = `${Math.random() * 3}s`;
                 stars.appendChild(star);
             }
         }
-        
-        // Инициализация фона и звезд
-        createBackground();
-        createStars();
-        
-        // Обновление отображения баланса
+
+        // Выбор случайного NFT
+        function selectRandomNft() {
+            const randomIndex = Math.floor(Math.random() * nftDatabase.length);
+            currentNft = nftDatabase[randomIndex];
+            
+            // Обновление отображения
+            nftGif.src = currentNft.gif;
+            nftName.textContent = currentNft.name;
+            nftValue.textContent = `~ ${calculateAveragePrice(currentNft)} TON`;
+            nftCollection.textContent = currentNft.collection;
+            
+            return currentNft;
+        }
+
+        // Расчет средней цены NFT
+        function calculateAveragePrice(nft) {
+            const prices = Object.values(nft.markets);
+            const average = prices.reduce((a, b) => a + b, 0) / prices.length;
+            return average.toFixed(2);
+        }
+
+        // Установка ставки
+        function setBet(amount) {
+            betAmount = amount;
+            customBetInput.value = amount;
+            updateBetButtons();
+            selectRandomNft(); // Новый NFT для новой ставки
+        }
+
+        // Корректировка ставки
+        function adjustBet(change) {
+            let current = parseFloat(customBetInput.value);
+            current += change;
+            if (current < 0.1) current = 0.1;
+            if (current > 1000) current = 1000;
+            customBetInput.value = current.toFixed(1);
+            betAmount = current;
+            updateBetButtons();
+        }
+
+        // Обновление кнопок ставок
+        function updateBetButtons() {
+            document.querySelectorAll('.bet-quick .bet-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (parseFloat(btn.textContent) === betAmount) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // Обновление баланса
         function updateBalanceDisplay() {
             balanceElement.textContent = `${balance.toFixed(2)} TON`;
-            potentialWinElement.textContent = `${(betAmount * currentMultiplier).toFixed(2)} TON`;
+            localStorage.setItem('qqvk_balance', balance.toString());
         }
-        
+
         // Обновление множителя
         function updateMultiplierDisplay() {
             multiplierElement.textContent = `x${currentMultiplier.toFixed(2)}`;
-            potentialWinElement.textContent = `${(betAmount * currentMultiplier).toFixed(2)} TON`;
+            const winAmount = betAmount * currentMultiplier;
+            potentialWinElement.textContent = `${winAmount.toFixed(2)} TON`;
             
-            // Обновление рекорда
             if (currentMultiplier > recordMultiplier) {
                 recordMultiplier = currentMultiplier;
-                recordMultiplierElement.textContent = `x${recordMultiplier.toFixed(2)}`;
             }
         }
-        
-        // Установка суммы ставки
-        function setBetAmount(amount) {
-            betAmount = amount;
-            betAmountElement.textContent = `${betAmount} TON`;
-            updateBalanceDisplay();
-            
-            // Обновление активной кнопки
-            betButtons.forEach(btn => {
-                if (parseInt(btn.dataset.bet) === amount) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Анимация кнопки
-            const activeBtn = document.querySelector('.bet-btn.active');
-            activeBtn.style.animation = 'none';
-            setTimeout(() => {
-                activeBtn.style.animation = '';
-            }, 10);
-        }
-        
-        // Создание эффекта искр
-        function createSparks(x, y, count = 20) {
-            for (let i = 0; i < count; i++) {
-                const spark = document.createElement('div');
-                spark.classList.add('spark');
-                
-                const angle = Math.random() * Math.PI * 2;
-                const distance = Math.random() * 100 + 50;
-                const tx = Math.cos(angle) * distance;
-                const ty = Math.sin(angle) * distance;
-                
-                spark.style.left = `${x}px`;
-                spark.style.top = `${y}px`;
-                spark.style.setProperty('--tx', `${tx}px`);
-                spark.style.setProperty('--ty', `${ty}px`);
-                spark.style.animationDelay = `${Math.random() * 0.5}s`;
-                
-                rocketContainer.appendChild(spark);
-                
-                setTimeout(() => {
-                    spark.remove();
-                }, 1000);
-            }
-        }
-        
+
         // Запуск ракеты
         function launchRocket() {
             if (isFlying || balance < betAmount) return;
             
-            // Снятие ставки с баланса
             balance -= betAmount;
             updateBalanceDisplay();
             
-            // Сброс параметров
             currentMultiplier = 1.00;
             isFlying = true;
             rocket.style.bottom = '180px';
-            rocket.style.animation = 'rocketShake 0.2s infinite';
             
-            // Обновление кнопок
             launchBtn.disabled = true;
             cashoutBtn.disabled = false;
+            cashoutBtn.innerHTML = '<i class="fas fa-gift"></i> ЗАБРАТЬ NFT';
             
-            // Анимация запуска
-            launchBtn.innerHTML = '<i class="fas fa-fire"></i> РАКЕТА В ПОЛЕТЕ';
+            // Сброс NFT выбора для нового полета
+            selectRandomNft();
             
-            // Запуск полета
+            addToHistory('launch', betAmount);
+            
             flightInterval = setInterval(() => {
-                // Увеличение множителя
-                const increase = 0.02 + Math.random() * 0.04;
-                currentMultiplier += increase;
+                currentMultiplier += 0.01 + Math.random() * 0.04;
                 
-                // Подъем ракеты
                 const currentBottom = parseFloat(rocket.style.bottom);
-                rocket.style.bottom = `${currentBottom + 2}px`;
+                rocket.style.bottom = `${currentBottom + 1.5}px`;
                 
-                // Обновление отображения
                 updateMultiplierDisplay();
                 
-                // Случайный взрыв (шанс увеличивается с высотой)
-                const explosionChance = 0.0015 + (currentBottom / 8000);
+                // Шанс взрыва увеличивается с высотой
+                const explosionChance = 0.001 + (currentBottom / 10000);
                 if (Math.random() < explosionChance && isFlying) {
                     explodeRocket();
                 }
                 
-                // Если ракета улетела слишком высоко
-                if (currentBottom > 700) {
-                    cashout(); // Автоматический вывод при достижении вершины
+                if (currentBottom > 600) {
+                    cashout();
+                }
+                
+                // Показ NFT при ставке от 2 TON
+                if (betAmount >= 2 && Math.random() < 0.05) {
+                    showFloatingNft();
                 }
             }, 80);
-            
-            // Добавление в историю
-            addToHistory('launch', betAmount);
         }
-        
+
+        // Показать летающий NFT
+        function showFloatingNft() {
+            const nft = selectRandomNft();
+            const floatingNft = document.createElement('div');
+            floatingNft.className = 'nft-floating';
+            floatingNft.style.left = `${Math.random() * 80 + 10}%`;
+            floatingNft.style.bottom = '180px';
+            
+            const img = document.createElement('img');
+            img.src = nft.gif;
+            img.style.width = '100%';
+            img.style.height = '100%';
+            img.style.objectFit = 'cover';
+            
+            floatingNft.appendChild(img);
+            rocketContainer.appendChild(floatingNft);
+            
+            setTimeout(() => {
+                floatingNft.remove();
+            }, 4000);
+        }
+
         // Взрыв ракеты
         function explodeRocket() {
             if (!isFlying) return;
@@ -1156,197 +1093,256 @@
             isFlying = false;
             clearInterval(flightInterval);
             
-            // Создание эффекта взрыва
             const explosion = document.createElement('div');
-            explosion.classList.add('explosion');
-            const rocketRect = rocket.getBoundingClientRect();
-            const containerRect = rocketContainer.getBoundingClientRect();
-            
-            explosion.style.left = `${rocketRect.left - containerRect.left + rocketRect.width / 2}px`;
-            explosion.style.top = `${rocketRect.top - containerRect.top + rocketRect.height / 2}px`;
+            explosion.className = 'explosion';
+            explosion.style.left = `${rocket.offsetLeft}px`;
+            explosion.style.top = `${rocket.offsetTop}px`;
             rocketContainer.appendChild(explosion);
             
-            // Создание искр
-            createSparks(
-                rocketRect.left - containerRect.left + rocketRect.width / 2,
-                rocketRect.top - containerRect.top + rocketRect.height / 2,
-                30
-            );
-            
-            // Анимация взрыва
             setTimeout(() => {
-                explosion.style.transition = 'all 0.8s';
                 explosion.style.opacity = '1';
-                explosion.style.transform = 'scale(3)';
+                explosion.style.transform = 'scale(2)';
             }, 10);
             
-            // Скрытие ракеты
             rocket.style.opacity = '0';
             
-            // Обновление кнопок
             launchBtn.disabled = false;
             cashoutBtn.disabled = true;
-            launchBtn.innerHTML = '<i class="fas fa-rocket"></i> ЗАПУСТИТЬ РАКЕТУ';
             
-            // Звуковые эффекты (вибрация)
-            if (navigator.vibrate) {
-                navigator.vibrate([100, 50, 100]);
-            }
-            
-            // Добавление в историю
             addToHistory('loss', betAmount, currentMultiplier);
             
-            // Сброс через 1.5 секунды
             setTimeout(() => {
                 explosion.remove();
                 rocket.style.opacity = '1';
                 rocket.style.bottom = '180px';
-                rocket.style.animation = '';
                 currentMultiplier = 1.00;
                 updateMultiplierDisplay();
-            }, 1500);
+            }, 1000);
         }
-        
-        // Забрать выигрыш
+
+        // Забрать NFT и выигрыш
         function cashout() {
             if (!isFlying) return;
             
             isFlying = false;
             clearInterval(flightInterval);
-            if (explosionTimeout) clearTimeout(explosionTimeout);
             
-            // Вычисление выигрыша
             const winAmount = betAmount * currentMultiplier;
             balance += winAmount;
-            
-            // Обновление отображения
             updateBalanceDisplay();
             
-            // Анимация успешной посадки
-            rocket.style.animation = '';
+            rocket.style.opacity = '1';
             
-            // Создание эффекта успеха
-            createSparks(
-                rocket.offsetLeft + rocket.offsetWidth / 2,
-                rocket.offsetTop + rocket.offsetHeight / 2,
-                15
-            );
-            
-            // Обновление кнопок
             launchBtn.disabled = false;
             cashoutBtn.disabled = true;
-            launchBtn.innerHTML = '<i class="fas fa-rocket"></i> ЗАПУСТИТЬ РАКЕТУ';
             
-            // Анимация баланса при выигрыше
-            balanceElement.style.transform = 'scale(1.2)';
-            setTimeout(() => {
-                balanceElement.style.transform = 'scale(1)';
-            }, 300);
+            // Проверяем, достаточно ли большая ставка для получения NFT
+            let nftWin = null;
+            if (betAmount >= 2 && currentMultiplier >= 1.5) {
+                nftWin = currentNft;
+                addNftToInventory(nftWin);
+                showNftWinModal(nftWin);
+            }
             
-            // Добавление в историю
-            addToHistory('win', betAmount, currentMultiplier, winAmount);
+            addToHistory('win', betAmount, currentMultiplier, winAmount, nftWin);
             
-            // Сброс через 2 секунды
             setTimeout(() => {
                 rocket.style.bottom = '180px';
                 currentMultiplier = 1.00;
                 updateMultiplierDisplay();
+                selectRandomNft();
             }, 2000);
         }
-        
-        // Добавление записи в историю
-        function addToHistory(type, bet, multiplier = 0, win = 0) {
-            const historyItem = document.createElement('li');
+
+        // Добавить NFT в инвентарь
+        function addNftToInventory(nft) {
+            userInventory.push({
+                ...nft,
+                id: Date.now(), // Уникальный ID для инвентаря
+                acquired: new Date().toISOString()
+            });
+            
+            updateInventoryDisplay();
+            saveInventory();
+        }
+
+        // Обновить отображение инвентаря
+        function updateInventoryDisplay() {
+            inventoryGrid.innerHTML = '';
+            
+            userInventory.forEach((nft, index) => {
+                const item = document.createElement('div');
+                item.className = 'inventory-item';
+                item.onclick = () => showNftDetails(nft);
+                
+                const img = document.createElement('img');
+                img.src = nft.gif;
+                img.alt = nft.name;
+                
+                const name = document.createElement('span');
+                name.textContent = nft.name.split('#')[0] + '...';
+                
+                const value = document.createElement('span');
+                value.textContent = `${calculateAveragePrice(nft)} TON`;
+                value.style.color = '#ffcc00';
+                value.style.fontSize = '10px';
+                
+                item.appendChild(img);
+                item.appendChild(name);
+                item.appendChild(value);
+                inventoryGrid.appendChild(item);
+            });
+            
+            if (userInventory.length === 0) {
+                inventoryGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #666; padding: 40px;">Инвентарь пуст</div>';
+            }
+        }
+
+        // Сохранить инвентарь
+        function saveInventory() {
+            localStorage.setItem('qqvk_inventory', JSON.stringify(userInventory));
+        }
+
+        // Загрузить инвентарь
+        function loadInventory() {
+            const saved = localStorage.getItem('qqvk_inventory');
+            if (saved) {
+                userInventory = JSON.parse(saved);
+                updateInventoryDisplay();
+            }
+        }
+
+        // Показать модальное окно с выигранным NFT
+        function showNftWinModal(nft) {
+            document.getElementById('modalNftImage').src = nft.gif;
+            document.getElementById('modalNftName').textContent = nft.name;
+            document.getElementById('modalNftValue').textContent = `${calculateAveragePrice(nft)} TON`;
+            document.getElementById('modalNftCollection').textContent = nft.collection;
+            nftModal.style.display = 'flex';
+        }
+
+        // Показать детали NFT
+        function showNftDetails(nft) {
+            document.getElementById('modalNftImage').src = nft.gif;
+            document.getElementById('modalNftName').textContent = nft.name;
+            document.getElementById('modalNftValue').textContent = `${calculateAveragePrice(nft)} TON`;
+            document.getElementById('modalNftCollection').textContent = nft.collection;
+            
+            // Изменяем заголовок для просмотра инвентаря
+            document.querySelector('.modal-content h2').textContent = '🎨 ВАШ NFT';
+            nftModal.style.display = 'flex';
+        }
+
+        // Закрыть модальное окно
+        function closeModal() {
+            nftModal.style.display = 'none';
+            // Возвращаем оригинальный заголовок
+            document.querySelector('.modal-content h2').textContent = '🎉 ПОЗДРАВЛЯЕМ!';
+        }
+
+        // Добавить запись в историю
+        function addToHistory(type, bet, multiplier = 0, win = 0, nft = null) {
+            const item = document.createElement('li');
+            item.className = `history-item ${type}`;
+            
+            const now = new Date();
+            const time = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
             
             if (type === 'launch') {
-                historyItem.classList.add('history-item');
-                historyItem.innerHTML = `
-                    <span style="color: #00ccff">🚀 Запуск</span>
+                item.innerHTML = `
+                    <span>🚀 Запуск</span>
                     <span>${bet} TON</span>
+                    <span>${time}</span>
                 `;
             } else if (type === 'win') {
-                historyItem.classList.add('history-item', 'win');
-                historyItem.innerHTML = `
-                    <span>💰 Выигрыш</span>
-                    <span class="history-multiplier">x${multiplier.toFixed(2)}</span>
-                    <span style="color: #00ffaa; font-weight: 700;">+${win.toFixed(2)} TON</span>
-                `;
+                if (nft) {
+                    item.classList.add('nft');
+                    item.innerHTML = `
+                        <span>🎁 NFT + Выигрыш</span>
+                        <span>x${multiplier.toFixed(2)}</span>
+                        <span>+${win.toFixed(2)} TON</span>
+                        <span>${time}</span>
+                    `;
+                } else {
+                    item.innerHTML = `
+                        <span>💰 Выигрыш</span>
+                        <span>x${multiplier.toFixed(2)}</span>
+                        <span>+${win.toFixed(2)} TON</span>
+                        <span>${time}</span>
+                    `;
+                }
             } else if (type === 'loss') {
-                historyItem.classList.add('history-item', 'loss');
-                historyItem.innerHTML = `
+                item.innerHTML = `
                     <span>💥 Взрыв</span>
-                    <span class="history-multiplier">x${multiplier.toFixed(2)}</span>
-                    <span style="color: #ff6666; font-weight: 700;">-${bet} TON</span>
+                    <span>x${multiplier.toFixed(2)}</span>
+                    <span>-${bet} TON</span>
+                    <span>${time}</span>
                 `;
             }
             
-            // Добавление в начало списка с анимацией
-            historyItem.style.animation = 'slideIn 0.5s ease-out';
-            historyList.insertBefore(historyItem, historyList.firstChild);
+            historyList.insertBefore(item, historyList.firstChild);
             
-            // Ограничение истории 12 последними записями
-            if (historyList.children.length > 12) {
+            // Ограничить историю 10 записями
+            if (historyList.children.length > 10) {
                 historyList.removeChild(historyList.lastChild);
             }
             
-            // Сохранение в массив истории
-            gameHistory.push({type, bet, multiplier, win, timestamp: new Date()});
+            gameHistory.push({ type, bet, multiplier, win, nft, timestamp: now });
         }
-        
+
+        // API для получения реальных NFT (имитация)
+        async function fetchRealNftData() {
+            try {
+                // В реальном приложении здесь был бы запрос к API маркетплейсов TON
+                // Для демо возвращаем нашу базу данных
+                return nftDatabase;
+            } catch (error) {
+                console.error('Ошибка загрузки NFT:', error);
+                return nftDatabase; // Возвращаем локальные данные в случае ошибки
+            }
+        }
+
+        // Обновить NFT данные через API
+        async function updateNftDataFromApi() {
+            const nfts = await fetchRealNftData();
+            // В реальном приложении здесь можно обновить цены из API
+            console.log('NFT данные загружены:', nfts.length, 'элементов');
+        }
+
         // Обработчики событий
+        customBetInput.addEventListener('change', function() {
+            setBet(parseFloat(this.value));
+        });
+
+        customBetInput.addEventListener('input', function() {
+            const value = parseFloat(this.value);
+            if (!isNaN(value) && value >= 0.1 && value <= 1000) {
+                betAmount = value;
+                updateBetButtons();
+            }
+        });
+
         launchBtn.addEventListener('click', launchRocket);
         cashoutBtn.addEventListener('click', cashout);
-        
-        // Обработчики кнопок ставок
-        betButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                setBetAmount(parseInt(btn.dataset.bet));
-                
-                // Анимация нажатия
-                btn.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    btn.style.transform = '';
-                }, 150);
-            });
+
+        // Добавление тестовых NFT в инвентарь
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'i') {
+                // Ctrl+I для добавления тестового NFT
+                const testNft = nftDatabase[Math.floor(Math.random() * nftDatabase.length)];
+                addNftToInventory(testNft);
+                alert(`Добавлен тестовый NFT: ${testNft.name}`);
+            }
         });
+
+        // Инициализация при загрузке
+        window.onload = init;
         
-        // Анимация при наведении на элементы
-        document.querySelectorAll('.game-btn, .bet-btn').forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                if (!btn.disabled) {
-                    btn.style.transform = 'translateY(-3px)';
-                }
-            });
-            
-            btn.addEventListener('mouseleave', () => {
-                if (!btn.disabled && !btn.classList.contains('active')) {
-                    btn.style.transform = '';
-                }
-            });
-        });
+        // Обновление данных NFT каждые 5 минут
+        setInterval(updateNftDataFromApi, 5 * 60 * 1000);
         
-        // Инициализация
-        updateBalanceDisplay();
-        updateMultiplierDisplay();
-        
-        // Добавление начальных записей в историю
-        setTimeout(() => {
-            addToHistory('win', 5, 3.45, 17.25);
-            addToHistory('loss', 10, 2.18);
-            addToHistory('win', 2, 8.91, 17.82);
-            addToHistory('loss', 25, 1.32);
-            addToHistory('win', 5, 5.67, 28.35);
-        }, 500);
-        
-        // Установка начального рекорда
-        recordMultiplier = 8.91;
-        recordMultiplierElement.textContent = `x${recordMultiplier.toFixed(2)}`;
-        
-        // Обновление фона каждые 30 секунд
-        setInterval(createBackground, 30000);
-        
-        // Обновление звезд каждые 10 секунд
-        setInterval(createStars, 10000);
+        // Первоначальная загрузка данных
+        updateNftDataFromApi();
     </script>
 </body>
 </html>
