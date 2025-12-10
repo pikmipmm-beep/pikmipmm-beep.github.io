@@ -107,6 +107,14 @@
             animation: shine 3s infinite linear;
         }
 
+        .subtitle {
+            font-size: 22px;
+            color: #a0e7ff;
+            margin-top: 10px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
         .main-content {
             display: grid;
             grid-template-columns: 2fr 1fr;
@@ -171,12 +179,16 @@
         }
 
         .nft-image {
-            width: 200px;
-            height: 200px;
+            width: 250px;
+            height: 250px;
             border-radius: 15px;
             overflow: hidden;
             border: 3px solid rgba(0, 204, 255, 0.3);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(45deg, #001122, #003355);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nft-image img {
@@ -185,27 +197,59 @@
             object-fit: cover;
         }
 
+        .nft-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 10px;
+            color: #00ccff;
+            font-size: 14px;
+        }
+
+        .nft-placeholder i {
+            font-size: 48px;
+            color: #00ccff;
+            opacity: 0.5;
+        }
+
         .nft-info {
             text-align: center;
+            width: 100%;
         }
 
         .nft-name {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #00ffaa;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
         }
 
         .nft-value {
-            font-size: 16px;
+            font-size: 18px;
             color: #ffcc00;
             font-weight: 600;
+            margin-bottom: 5px;
         }
 
         .nft-collection {
-            font-size: 14px;
+            font-size: 16px;
             color: #a0e7ff;
-            opacity: 0.8;
+            opacity: 0.9;
+        }
+
+        .nft-note {
+            font-size: 14px;
+            color: #ffcc00;
+            text-align: center;
+            padding: 10px;
+            background: rgba(255, 204, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 10px;
+            border: 1px solid rgba(255, 204, 0, 0.3);
         }
 
         .mountain {
@@ -289,28 +333,67 @@
             border: 1px solid rgba(0, 136, 204, 0.3);
         }
 
+        .bet-section h3 {
+            color: #00ccff;
+            margin-bottom: 20px;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .custom-bet {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        .custom-bet input {
+        .bet-input-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bet-input-group input {
+            flex: 1;
             padding: 18px;
             border-radius: 15px;
             border: 2px solid rgba(0, 136, 204, 0.5);
             background: rgba(0, 0, 0, 0.4);
             color: white;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             text-align: center;
             transition: all 0.3s;
         }
 
-        .custom-bet input:focus {
+        .bet-input-group input:focus {
             outline: none;
             border-color: #00ccff;
             box-shadow: 0 0 20px rgba(0, 204, 255, 0.3);
+        }
+
+        .bet-adjust-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .bet-adjust-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #0088cc 0%, #004488 100%);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .bet-adjust-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.4);
         }
 
         .bet-quick {
@@ -320,7 +403,7 @@
         }
 
         .bet-btn {
-            padding: 15px;
+            padding: 15px 10px;
             border: none;
             border-radius: 12px;
             background: linear-gradient(135deg, #0088cc 0%, #004488 100%);
@@ -334,6 +417,12 @@
         .bet-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 136, 204, 0.4);
+        }
+
+        .bet-btn.active {
+            background: linear-gradient(135deg, #00cc66 0%, #008844 100%);
+            box-shadow: 0 0 20px rgba(0, 204, 102, 0.5);
+            transform: scale(1.05);
         }
 
         .game-buttons {
@@ -359,11 +448,30 @@
         .launch-btn {
             background: linear-gradient(135deg, #ff3300 0%, #ff9900 100%);
             color: white;
+            box-shadow: 0 10px 25px rgba(255, 50, 0, 0.3);
+        }
+
+        .launch-btn:hover:not(:disabled) {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 50, 0, 0.5);
         }
 
         .cashout-btn {
             background: linear-gradient(135deg, #00cc66 0%, #008844 100%);
             color: white;
+            box-shadow: 0 10px 25px rgba(0, 204, 102, 0.3);
+        }
+
+        .cashout-btn:hover:not(:disabled) {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 204, 102, 0.5);
+        }
+
+        .game-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none !important;
+            box-shadow: none !important;
         }
 
         .stats-area {
@@ -380,12 +488,22 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
+        .balance-card h3 {
+            color: #00ccff;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .multiplier-display {
             text-align: center;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
             border: 2px solid rgba(255, 204, 0, 0.3);
+            margin: 20px 0;
         }
 
         .multiplier-value {
@@ -393,6 +511,17 @@
             font-weight: 900;
             color: #ffcc00;
             text-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+        }
+
+        .win-display {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: rgba(0, 20, 40, 0.6);
+            border-radius: 12px;
+            margin-top: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .inventory {
@@ -406,6 +535,9 @@
             color: #00ccff;
             margin-bottom: 20px;
             font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .inventory-grid {
@@ -415,29 +547,35 @@
             max-height: 300px;
             overflow-y: auto;
             padding: 10px;
+            background: rgba(0, 20, 40, 0.3);
+            border-radius: 12px;
         }
 
         .inventory-item {
-            background: rgba(0, 20, 40, 0.6);
+            background: rgba(0, 30, 60, 0.6);
             border-radius: 12px;
             padding: 10px;
             text-align: center;
             border: 1px solid rgba(0, 204, 255, 0.2);
             transition: all 0.3s;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
 
         .inventory-item:hover {
             transform: translateY(-5px);
             border-color: #00ccff;
+            box-shadow: 0 10px 20px rgba(0, 204, 255, 0.2);
         }
 
         .inventory-item img {
             width: 80px;
             height: 80px;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-bottom: 8px;
             object-fit: cover;
+            border: 2px solid rgba(255, 255, 255, 0.1);
         }
 
         .inventory-item span {
@@ -449,6 +587,13 @@
             white-space: nowrap;
         }
 
+        .inventory-value {
+            font-size: 10px;
+            color: #ffcc00;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+
         .history {
             background: rgba(10, 15, 30, 0.8);
             border-radius: 25px;
@@ -456,31 +601,66 @@
             border: 1px solid rgba(0, 136, 204, 0.2);
         }
 
+        .history h3 {
+            color: #00ccff;
+            margin-bottom: 20px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         .history-list {
             list-style: none;
             max-height: 200px;
             overflow-y: auto;
+            padding-right: 10px;
+        }
+
+        .history-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .history-list::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+
+        .history-list::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #0088cc, #00ccff);
+            border-radius: 10px;
         }
 
         .history-item {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             padding: 12px 15px;
             margin-bottom: 10px;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 20, 40, 0.6);
             border-radius: 10px;
+            border-left: 5px solid #0088cc;
+            transition: all 0.3s;
+        }
+
+        .history-item:hover {
+            transform: translateX(5px);
+            background: rgba(0, 30, 60, 0.7);
         }
 
         .history-item.win {
-            border-left: 4px solid #00cc66;
+            border-left-color: #00cc66;
+            background: linear-gradient(90deg, rgba(0, 204, 102, 0.1) 0%, transparent 100%);
         }
 
         .history-item.loss {
-            border-left: 4px solid #ff3300;
+            border-left-color: #ff3300;
+            background: linear-gradient(90deg, rgba(255, 51, 0, 0.1) 0%, transparent 100%);
         }
 
         .history-item.nft {
-            border-left: 4px solid #ffcc00;
+            border-left-color: #ffcc00;
+            background: linear-gradient(90deg, rgba(255, 204, 0, 0.1) 0%, transparent 100%);
         }
 
         .modal {
@@ -490,10 +670,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             z-index: 1000;
             justify-content: center;
             align-items: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .modal-content {
@@ -505,20 +691,35 @@
             text-align: center;
             border: 2px solid rgba(0, 204, 255, 0.5);
             box-shadow: 0 0 50px rgba(0, 204, 255, 0.3);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .modal h2 {
             color: #00ffaa;
             margin-bottom: 20px;
             font-size: 32px;
+            text-shadow: 0 0 10px rgba(0, 255, 170, 0.5);
         }
 
-        .modal img {
-            width: 200px;
-            height: 200px;
+        .modal-nft-image {
+            width: 250px;
+            height: 250px;
             border-radius: 15px;
             margin: 20px auto;
+            overflow: hidden;
             border: 3px solid #00ccff;
+            box-shadow: 0 0 30px rgba(0, 204, 255, 0.5);
+        }
+
+        .modal-nft-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .modal p {
@@ -537,6 +738,12 @@
             font-size: 18px;
             font-weight: 700;
             cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .close-modal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 136, 204, 0.4);
         }
 
         .nft-floating {
@@ -547,7 +754,7 @@
             overflow: hidden;
             border: 2px solid rgba(255, 204, 0, 0.5);
             box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
-            animation: floatUp 4s ease-out forwards;
+            animation: floatUp 3s ease-out forwards;
             z-index: 5;
         }
 
@@ -557,7 +764,7 @@
                 opacity: 1;
             }
             100% {
-                transform: translateY(-100px) scale(0.5);
+                transform: translateY(-300px) scale(0.5);
                 opacity: 0;
             }
         }
@@ -571,6 +778,12 @@
             opacity: 0;
             pointer-events: none;
             z-index: 20;
+            animation: explode 0.5s forwards;
+        }
+
+        @keyframes explode {
+            0% { transform: scale(0); opacity: 1; }
+            100% { transform: scale(2); opacity: 0; }
         }
 
         @keyframes flame {
@@ -610,7 +823,7 @@
             }
             
             .nft-preview {
-                height: 300px;
+                height: 350px;
             }
         }
 
@@ -625,6 +838,19 @@
             
             h1 {
                 font-size: 36px;
+            }
+            
+            .logo-icon {
+                font-size: 42px;
+            }
+            
+            .bet-quick {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nft-image {
+                width: 200px;
+                height: 200px;
             }
         }
     </style>
@@ -655,18 +881,23 @@
                     </div>
                     
                     <div class="nft-preview">
-                        <h3>🎁 СЛУЧАЙНЫЙ NFT-ПОДАРОК</h3>
+                        <h3><i class="fas fa-gift"></i> СЛУЧАЙНЫЙ NFT-ПОДАРОК</h3>
                         <div class="current-nft" id="currentNft">
                             <div class="nft-image">
-                                <img id="nftGif" src="https://via.placeholder.com/200x200/0088cc/ffffff?text=QQVK+NFT" alt="NFT Preview">
+                                <img id="nftGif" src="" alt="NFT Preview" style="display: none;">
+                                <div class="nft-placeholder" id="nftPlaceholder">
+                                    <i class="fas fa-gem"></i>
+                                    <div>Выберите сумму ставки</div>
+                                    <div style="font-size: 12px;">NFT появится здесь</div>
+                                </div>
                             </div>
                             <div class="nft-info">
-                                <div class="nft-name" id="nftName">Выберите NFT...</div>
-                                <div class="nft-value" id="nftValue">~ 0 TON</div>
+                                <div class="nft-name" id="nftName">NFT Preview</div>
+                                <div class="nft-value" id="nftValue">~ 0.00 TON</div>
                                 <div class="nft-collection" id="nftCollection">Коллекция</div>
                             </div>
-                            <div style="font-size: 14px; color: #a0e7ff; text-align: center;">
-                                💎 Ставка от 2 TON для получения NFT
+                            <div class="nft-note">
+                                <i class="fas fa-gem"></i> Ставка от 2 TON для получения NFT
                             </div>
                         </div>
                     </div>
@@ -675,18 +906,22 @@
                 <div class="controls">
                     <div class="bet-controls">
                         <div class="bet-section custom-bet">
-                            <h3>💰 ВВЕДИТЕ СТАВКУ</h3>
-                            <input type="number" id="customBet" min="1" max="1000" value="5" step="0.1">
-                            <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                                <button onclick="adjustBet(-1)" class="bet-btn">-1 TON</button>
-                                <button onclick="adjustBet(-0.1)" class="bet-btn">-0.1</button>
-                                <button onclick="adjustBet(0.1)" class="bet-btn">+0.1</button>
-                                <button onclick="adjustBet(1)" class="bet-btn">+1 TON</button>
+                            <h3><i class="fas fa-coins"></i> ВВЕДИТЕ СТАВКУ</h3>
+                            <div class="bet-input-group">
+                                <input type="number" id="customBet" min="0.1" max="1000" value="5" step="0.1" placeholder="Сумма в TON">
+                            </div>
+                            <div class="bet-adjust-buttons">
+                                <button class="bet-adjust-btn" onclick="adjustBet(-10)">-10</button>
+                                <button class="bet-adjust-btn" onclick="adjustBet(-1)">-1</button>
+                                <button class="bet-adjust-btn" onclick="adjustBet(-0.1)">-0.1</button>
+                                <button class="bet-adjust-btn" onclick="adjustBet(0.1)">+0.1</button>
+                                <button class="bet-adjust-btn" onclick="adjustBet(1)">+1</button>
+                                <button class="bet-adjust-btn" onclick="adjustBet(10)">+10</button>
                             </div>
                         </div>
                         
                         <div class="bet-section">
-                            <h3>⚡ БЫСТРЫЕ СТАВКИ</h3>
+                            <h3><i class="fas fa-bolt"></i> БЫСТРЫЕ СТАВКИ</h3>
                             <div class="bet-quick">
                                 <button class="bet-btn" onclick="setBet(1)">1 TON</button>
                                 <button class="bet-btn" onclick="setBet(2)">2 TON</button>
@@ -713,30 +948,31 @@
             
             <div class="stats-area">
                 <div class="balance-card">
-                    <h3>👛 ВАШ БАЛАНС</h3>
-                    <div class="multiplier-display" style="margin: 20px 0;">
-                        <div style="font-size: 18px; color: #00ffaa;">Доступно:</div>
+                    <h3><i class="fas fa-wallet"></i> ВАШ БАЛАНС</h3>
+                    <div class="multiplier-display">
+                        <div style="font-size: 20px; color: #00ffaa; margin-bottom: 10px;">Доступно:</div>
                         <div class="multiplier-value" id="balanceValue">1000 TON</div>
                     </div>
                     
                     <div class="multiplier-display">
-                        <div>ТЕКУЩИЙ МНОЖИТЕЛЬ</div>
+                        <div style="font-size: 18px; margin-bottom: 10px;">ТЕКУЩИЙ МНОЖИТЕЛЬ</div>
                         <div class="multiplier-value" id="multiplierValue">x1.00</div>
-                        <div style="font-size: 16px; margin-top: 10px;">
-                            Выигрыш: <span id="potentialWin">0.00 TON</span>
+                        <div class="win-display">
+                            <span style="font-size: 16px;">Возможный выигрыш:</span>
+                            <span style="font-size: 20px; color: #00ffaa; font-weight: 700;" id="potentialWin">0.00 TON</span>
                         </div>
                     </div>
                 </div>
                 
                 <div class="inventory">
-                    <h3>📦 ВАШ ИНВЕНТАРЬ NFT</h3>
+                    <h3><i class="fas fa-box-open"></i> ВАШ ИНВЕНТАРЬ NFT</h3>
                     <div class="inventory-grid" id="inventoryGrid">
                         <!-- NFT будут добавляться сюда -->
                     </div>
                 </div>
                 
                 <div class="history">
-                    <h3>📜 ИСТОРИЯ ИГР</h3>
+                    <h3><i class="fas fa-history"></i> ИСТОРИЯ ИГР</h3>
                     <ul class="history-list" id="historyList">
                         <!-- История будет заполняться здесь -->
                     </ul>
@@ -748,14 +984,17 @@
     <!-- Модальное окно для выигрыша NFT -->
     <div class="modal" id="nftModal">
         <div class="modal-content">
-            <h2>🎉 ПОЗДРАВЛЯЕМ!</h2>
-            <div class="nft-image" style="margin: 20px auto;">
+            <h2 id="modalTitle">🎉 ПОЗДРАВЛЯЕМ!</h2>
+            <div class="modal-nft-image">
                 <img id="modalNftImage" src="" alt="Выигранный NFT">
             </div>
-            <h3 id="modalNftName"></h3>
-            <p>Вы успешно получили NFT!</p>
-            <p>Стоимость: <span id="modalNftValue" style="color: #ffcc00;"></span></p>
-            <p>Коллекция: <span id="modalNftCollection"></span></p>
+            <h3 id="modalNftName" style="color: #00ffaa; margin: 15px 0;"></h3>
+            <p style="font-size: 20px; color: #ffcc00;">Вы успешно получили NFT!</p>
+            <p>Стоимость: <span id="modalNftValue" style="color: #ffcc00; font-weight: 700;"></span></p>
+            <p>Коллекция: <span id="modalNftCollection" style="color: #a0e7ff;"></span></p>
+            <p style="margin-top: 20px; font-size: 14px; color: #cccccc;">
+                <i class="fas fa-info-circle"></i> NFT добавлен в ваш инвентарь
+            </p>
             <button class="close-modal" onclick="closeModal()">ЗАКРЫТЬ</button>
         </div>
     </div>
@@ -770,130 +1009,99 @@
         let currentNft = null;
         let userInventory = [];
         let gameHistory = [];
-        let recordMultiplier = 0;
 
-        // База данных NFT (реальные NFT из TON)
+        // База данных NFT с работающими GIF
         const nftDatabase = [
             {
                 id: 1,
                 name: "Stoop Dogg #482955",
                 value: 19,
                 collection: "Stoop Dogg",
-                gif: "https://img.cdn.ton.diamonds/preview/482955.gif",
-                markets: {
-                    getgems: 18.5,
-                    ton_diamonds: 19.2,
-                    fragment: 19.0
-                }
+                // Заменяем на работающие GIF или статические изображения
+                gif: "https://media.tenor.com/0s3G2pFJ-VwAAAAC/nft-crypto.gif",
+                markets: { getgems: 18.5, ton_diamonds: 19.2, fragment: 19.0 }
             },
             {
                 id: 2,
                 name: "Desk Calendar #71663",
                 value: 2.29,
                 collection: "Desk Calendar",
-                gif: "https://img.cdn.ton.diamonds/preview/71663.gif",
-                markets: {
-                    getgems: 2.3,
-                    ton_diamonds: 2.28,
-                    fragment: 2.29
-                }
+                gif: "https://media.tenor.com/QVMbLZ0q43UAAAAC/nft-art.gif",
+                markets: { getgems: 2.3, ton_diamonds: 2.28, fragment: 2.29 }
             },
             {
                 id: 3,
                 name: "Perfume Bottle #1247",
                 value: 90,
                 collection: "Perfume Bottle",
-                gif: "https://img.cdn.ton.diamonds/preview/1247.gif",
-                markets: {
-                    getgems: 89.5,
-                    ton_diamonds: 90.5,
-                    fragment: 90.0
-                }
+                gif: "https://media.tenor.com/Y_uR-BD-4xMAAAAC/nft-artwork.gif",
+                markets: { getgems: 89.5, ton_diamonds: 90.5, fragment: 90.0 }
             },
             {
                 id: 4,
                 name: "Lol Pop #426062",
                 value: 2.29,
                 collection: "Lol Pop",
-                gif: "https://img.cdn.ton.diamonds/preview/426062.gif",
-                markets: {
-                    getgems: 2.28,
-                    ton_diamonds: 2.3,
-                    fragment: 2.29
-                }
+                gif: "https://media.tenor.com/JhH0r3QN6ZwAAAAd/nft-art.gif",
+                markets: { getgems: 2.28, ton_diamonds: 2.3, fragment: 2.29 }
             },
             {
                 id: 5,
                 name: "Instant Ramen #221988",
                 value: 2.29,
                 collection: "Instant Ramen",
-                gif: "https://img.cdn.ton.diamonds/preview/221988.gif",
-                markets: {
-                    getgems: 2.27,
-                    ton_diamonds: 2.31,
-                    fragment: 2.29
-                }
+                gif: "https://media.tenor.com/8tJ4lrnzfwgAAAAC/nft-artist.gif",
+                markets: { getgems: 2.27, ton_diamonds: 2.31, fragment: 2.29 }
             },
             {
                 id: 6,
                 name: "Lock Bag #5246",
                 value: 220,
                 collection: "Lock Bag",
-                gif: "https://img.cdn.ton.diamonds/preview/5246.gif",
-                markets: {
-                    getgems: 219.5,
-                    ton_diamonds: 220.5,
-                    fragment: 220.0
-                }
+                gif: "https://media.tenor.com/lXizh8No8nEAAAAC/nft-digital-art.gif",
+                markets: { getgems: 219.5, ton_diamonds: 220.5, fragment: 220.0 }
             },
             {
                 id: 7,
                 name: "Desk Calendar #327270",
                 value: 2.29,
                 collection: "Desk Calendar",
-                gif: "https://img.cdn.ton.diamonds/preview/327270.gif",
-                markets: {
-                    getgems: 2.3,
-                    ton_diamonds: 2.28,
-                    fragment: 2.29
-                }
+                gif: "https://media.tenor.com/lVtpuik9iX8AAAAC/nft-crypto.gif",
+                markets: { getgems: 2.3, ton_diamonds: 2.28, fragment: 2.29 }
             },
             {
                 id: 8,
                 name: "Signet Ring #14706",
                 value: 44,
                 collection: "Signet Ring",
-                gif: "https://img.cdn.ton.diamonds/preview/14706.gif",
-                markets: {
-                    getgems: 43.5,
-                    ton_diamonds: 44.2,
-                    fragment: 44.0
-                }
+                gif: "https://media.tenor.com/QVMbLZ0q43UAAAAC/nft-art.gif",
+                markets: { getgems: 43.5, ton_diamonds: 44.2, fragment: 44.0 }
             },
             {
                 id: 9,
                 name: "Stoop Dogg #166611",
                 value: 6.66,
                 collection: "Stoop Dogg",
-                gif: "https://img.cdn.ton.diamonds/preview/166611.gif",
-                markets: {
-                    getgems: 6.6,
-                    ton_diamonds: 6.7,
-                    fragment: 6.66
-                }
+                gif: "https://media.tenor.com/0s3G2pFJ-VwAAAAC/nft-crypto.gif",
+                markets: { getgems: 6.6, ton_diamonds: 6.7, fragment: 6.66 }
             },
             {
                 id: 10,
                 name: "Lush Bouquet #6206",
                 value: 50,
                 collection: "Lush Bouquet",
-                gif: "https://img.cdn.ton.diamonds/preview/6206.gif",
-                markets: {
-                    getgems: 49.5,
-                    ton_diamonds: 50.2,
-                    fragment: 50.0
-                }
+                gif: "https://media.tenor.com/Y_uR-BD-4xMAAAAC/nft-artwork.gif",
+                markets: { getgems: 49.5, ton_diamonds: 50.2, fragment: 50.0 }
             }
+        ];
+
+        // Альтернативные GIF ссылки на случай если основные не работают
+        const fallbackGifs = [
+            "https://media.tenor.com/0s3G2pFJ-VwAAAAC/nft-crypto.gif",
+            "https://media.tenor.com/QVMbLZ0q43UAAAAC/nft-art.gif",
+            "https://media.tenor.com/Y_uR-BD-4xMAAAAC/nft-artwork.gif",
+            "https://media.tenor.com/JhH0r3QN6ZwAAAAd/nft-art.gif",
+            "https://media.tenor.com/8tJ4lrnzfwgAAAAC/nft-artist.gif"
         ];
 
         // DOM элементы
@@ -906,12 +1114,18 @@
         const cashoutBtn = document.getElementById('cashoutBtn');
         const customBetInput = document.getElementById('customBet');
         const nftGif = document.getElementById('nftGif');
+        const nftPlaceholder = document.getElementById('nftPlaceholder');
         const nftName = document.getElementById('nftName');
         const nftValue = document.getElementById('nftValue');
         const nftCollection = document.getElementById('nftCollection');
         const inventoryGrid = document.getElementById('inventoryGrid');
         const historyList = document.getElementById('historyList');
         const nftModal = document.getElementById('nftModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalNftImage = document.getElementById('modalNftImage');
+        const modalNftName = document.getElementById('modalNftName');
+        const modalNftValue = document.getElementById('modalNftValue');
+        const modalNftCollection = document.getElementById('modalNftCollection');
 
         // Инициализация
         function init() {
@@ -919,7 +1133,6 @@
             updateMultiplierDisplay();
             loadInventory();
             createStars();
-            selectRandomNft();
             
             // Загрузка сохраненных данных
             const savedBalance = localStorage.getItem('qqvk_balance');
@@ -934,6 +1147,16 @@
                 userInventory = JSON.parse(savedInventory);
                 updateInventoryDisplay();
             }
+            
+            // Установка начальной ставки
+            setBet(5);
+            
+            // Добавление тестовых записей в историю
+            setTimeout(() => {
+                addToHistory('win', 5, 3.45, 17.25);
+                addToHistory('loss', 10, 2.18);
+                addToHistory('nft', 2, 8.91, 17.82, {name: "Stoop Dogg #482955", value: 19});
+            }, 500);
         }
 
         // Создание звезд
@@ -958,19 +1181,35 @@
             currentNft = nftDatabase[randomIndex];
             
             // Обновление отображения
-            nftGif.src = currentNft.gif;
-            nftName.textContent = currentNft.name;
-            nftValue.textContent = `~ ${calculateAveragePrice(currentNft)} TON`;
-            nftCollection.textContent = currentNft.collection;
+            updateNftDisplay(currentNft);
             
             return currentNft;
         }
 
+        // Обновление отображения NFT
+        function updateNftDisplay(nft) {
+            if (nft && nft.gif) {
+                nftGif.src = nft.gif;
+                nftGif.style.display = 'block';
+                nftPlaceholder.style.display = 'none';
+            } else {
+                nftGif.style.display = 'none';
+                nftPlaceholder.style.display = 'flex';
+            }
+            
+            if (nft) {
+                nftName.textContent = nft.name;
+                nftValue.textContent = `~ ${calculateAveragePrice(nft).toFixed(2)} TON`;
+                nftCollection.textContent = nft.collection;
+            }
+        }
+
         // Расчет средней цены NFT
         function calculateAveragePrice(nft) {
+            if (!nft || !nft.markets) return 0;
             const prices = Object.values(nft.markets);
             const average = prices.reduce((a, b) => a + b, 0) / prices.length;
-            return average.toFixed(2);
+            return average;
         }
 
         // Установка ставки
@@ -978,7 +1217,18 @@
             betAmount = amount;
             customBetInput.value = amount;
             updateBetButtons();
-            selectRandomNft(); // Новый NFT для новой ставки
+            
+            // Показываем NFT только если ставка >= 2 TON
+            if (amount >= 2) {
+                selectRandomNft();
+            } else {
+                // Скрываем NFT для маленьких ставок
+                nftGif.style.display = 'none';
+                nftPlaceholder.style.display = 'flex';
+                nftName.textContent = "NFT Preview";
+                nftValue.textContent = "~ 0.00 TON";
+                nftCollection.textContent = "Сделайте ставку от 2 TON";
+            }
         }
 
         // Корректировка ставки
@@ -988,8 +1238,7 @@
             if (current < 0.1) current = 0.1;
             if (current > 1000) current = 1000;
             customBetInput.value = current.toFixed(1);
-            betAmount = current;
-            updateBetButtons();
+            setBet(current);
         }
 
         // Обновление кнопок ставок
@@ -1013,10 +1262,6 @@
             multiplierElement.textContent = `x${currentMultiplier.toFixed(2)}`;
             const winAmount = betAmount * currentMultiplier;
             potentialWinElement.textContent = `${winAmount.toFixed(2)} TON`;
-            
-            if (currentMultiplier > recordMultiplier) {
-                recordMultiplier = currentMultiplier;
-            }
         }
 
         // Запуск ракеты
@@ -1034,21 +1279,23 @@
             cashoutBtn.disabled = false;
             cashoutBtn.innerHTML = '<i class="fas fa-gift"></i> ЗАБРАТЬ NFT';
             
-            // Сброс NFT выбора для нового полета
-            selectRandomNft();
+            // Выбираем новый NFT для этого полета если ставка >= 2 TON
+            if (betAmount >= 2) {
+                selectRandomNft();
+            }
             
             addToHistory('launch', betAmount);
             
             flightInterval = setInterval(() => {
-                currentMultiplier += 0.01 + Math.random() * 0.04;
+                currentMultiplier += 0.02 + Math.random() * 0.05;
                 
                 const currentBottom = parseFloat(rocket.style.bottom);
-                rocket.style.bottom = `${currentBottom + 1.5}px`;
+                rocket.style.bottom = `${currentBottom + 2}px`;
                 
                 updateMultiplierDisplay();
                 
                 // Шанс взрыва увеличивается с высотой
-                const explosionChance = 0.001 + (currentBottom / 10000);
+                const explosionChance = 0.001 + (currentBottom / 8000);
                 if (Math.random() < explosionChance && isFlying) {
                     explodeRocket();
                 }
@@ -1057,8 +1304,8 @@
                     cashout();
                 }
                 
-                // Показ NFT при ставке от 2 TON
-                if (betAmount >= 2 && Math.random() < 0.05) {
+                // Показ летающих NFT при ставке от 2 TON
+                if (betAmount >= 2 && Math.random() < 0.03) {
                     showFloatingNft();
                 }
             }, 80);
@@ -1066,10 +1313,10 @@
 
         // Показать летающий NFT
         function showFloatingNft() {
-            const nft = selectRandomNft();
+            const nft = nftDatabase[Math.floor(Math.random() * nftDatabase.length)];
             const floatingNft = document.createElement('div');
             floatingNft.className = 'nft-floating';
-            floatingNft.style.left = `${Math.random() * 80 + 10}%`;
+            floatingNft.style.left = `${Math.random() * 70 + 15}%`;
             floatingNft.style.bottom = '180px';
             
             const img = document.createElement('img');
@@ -1083,7 +1330,7 @@
             
             setTimeout(() => {
                 floatingNft.remove();
-            }, 4000);
+            }, 3000);
         }
 
         // Взрыв ракеты
@@ -1095,19 +1342,15 @@
             
             const explosion = document.createElement('div');
             explosion.className = 'explosion';
-            explosion.style.left = `${rocket.offsetLeft}px`;
-            explosion.style.top = `${rocket.offsetTop}px`;
+            explosion.style.left = `${rocket.offsetLeft + rocket.offsetWidth / 2}px`;
+            explosion.style.top = `${rocket.offsetTop + rocket.offsetHeight / 2}px`;
             rocketContainer.appendChild(explosion);
-            
-            setTimeout(() => {
-                explosion.style.opacity = '1';
-                explosion.style.transform = 'scale(2)';
-            }, 10);
             
             rocket.style.opacity = '0';
             
             launchBtn.disabled = false;
             cashoutBtn.disabled = true;
+            cashoutBtn.innerHTML = '<i class="fas fa-gift"></i> ЗАБРАТЬ NFT';
             
             addToHistory('loss', betAmount, currentMultiplier);
             
@@ -1117,6 +1360,11 @@
                 rocket.style.bottom = '180px';
                 currentMultiplier = 1.00;
                 updateMultiplierDisplay();
+                
+                // Выбираем новый NFT для следующей игры
+                if (betAmount >= 2) {
+                    selectRandomNft();
+                }
             }, 1000);
         }
 
@@ -1131,8 +1379,6 @@
             balance += winAmount;
             updateBalanceDisplay();
             
-            rocket.style.opacity = '1';
-            
             launchBtn.disabled = false;
             cashoutBtn.disabled = true;
             
@@ -1141,34 +1387,56 @@
             if (betAmount >= 2 && currentMultiplier >= 1.5) {
                 nftWin = currentNft;
                 addNftToInventory(nftWin);
-                showNftWinModal(nftWin);
+                showNftWinModal(nftWin, winAmount);
+            } else {
+                // Просто денежный выигрыш
+                addToHistory('win', betAmount, currentMultiplier, winAmount);
             }
             
-            addToHistory('win', betAmount, currentMultiplier, winAmount, nftWin);
+            // Анимация успешной посадки
+            rocket.style.opacity = '1';
             
             setTimeout(() => {
                 rocket.style.bottom = '180px';
                 currentMultiplier = 1.00;
                 updateMultiplierDisplay();
-                selectRandomNft();
+                
+                // Выбираем новый NFT для следующей игры
+                if (betAmount >= 2) {
+                    selectRandomNft();
+                }
             }, 2000);
         }
 
         // Добавить NFT в инвентарь
         function addNftToInventory(nft) {
-            userInventory.push({
+            const inventoryNft = {
                 ...nft,
                 id: Date.now(), // Уникальный ID для инвентаря
-                acquired: new Date().toISOString()
-            });
+                acquired: new Date().toISOString(),
+                inventoryId: `nft_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
+            };
             
+            userInventory.push(inventoryNft);
             updateInventoryDisplay();
             saveInventory();
+            return inventoryNft;
         }
 
         // Обновить отображение инвентаря
         function updateInventoryDisplay() {
             inventoryGrid.innerHTML = '';
+            
+            if (userInventory.length === 0) {
+                inventoryGrid.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
+                        <i class="fas fa-box-open" style="font-size: 48px; margin-bottom: 15px; display: block; opacity: 0.5;"></i>
+                        <div>Инвентарь пуст</div>
+                        <div style="font-size: 12px; margin-top: 10px;">Выиграйте NFT при ставке от 2 TON</div>
+                    </div>
+                `;
+                return;
+            }
             
             userInventory.forEach((nft, index) => {
                 const item = document.createElement('div');
@@ -1178,24 +1446,22 @@
                 const img = document.createElement('img');
                 img.src = nft.gif;
                 img.alt = nft.name;
+                img.onerror = function() {
+                    this.src = fallbackGifs[index % fallbackGifs.length];
+                };
                 
                 const name = document.createElement('span');
-                name.textContent = nft.name.split('#')[0] + '...';
+                name.textContent = nft.name.length > 15 ? nft.name.substring(0, 12) + '...' : nft.name;
                 
-                const value = document.createElement('span');
-                value.textContent = `${calculateAveragePrice(nft)} TON`;
-                value.style.color = '#ffcc00';
-                value.style.fontSize = '10px';
+                const value = document.createElement('div');
+                value.className = 'inventory-value';
+                value.textContent = `${calculateAveragePrice(nft).toFixed(2)} TON`;
                 
                 item.appendChild(img);
                 item.appendChild(name);
                 item.appendChild(value);
                 inventoryGrid.appendChild(item);
             });
-            
-            if (userInventory.length === 0) {
-                inventoryGrid.innerHTML = '<div style="grid-column: 1/-1; text-align: center; color: #666; padding: 40px;">Инвентарь пуст</div>';
-            }
         }
 
         // Сохранить инвентарь
@@ -1213,31 +1479,39 @@
         }
 
         // Показать модальное окно с выигранным NFT
-        function showNftWinModal(nft) {
-            document.getElementById('modalNftImage').src = nft.gif;
-            document.getElementById('modalNftName').textContent = nft.name;
-            document.getElementById('modalNftValue').textContent = `${calculateAveragePrice(nft)} TON`;
-            document.getElementById('modalNftCollection').textContent = nft.collection;
+        function showNftWinModal(nft, cashWin = 0) {
+            modalTitle.textContent = '🎉 ПОЗДРАВЛЯЕМ!';
+            modalNftImage.src = nft.gif;
+            modalNftImage.onerror = function() {
+                this.src = fallbackGifs[Math.floor(Math.random() * fallbackGifs.length)];
+            };
+            modalNftName.textContent = nft.name;
+            modalNftValue.textContent = `${calculateAveragePrice(nft).toFixed(2)} TON`;
+            modalNftCollection.textContent = nft.collection;
+            
+            addToHistory('nft', betAmount, currentMultiplier, cashWin, nft);
+            
             nftModal.style.display = 'flex';
         }
 
-        // Показать детали NFT
+        // Показать детали NFT из инвентаря
         function showNftDetails(nft) {
-            document.getElementById('modalNftImage').src = nft.gif;
-            document.getElementById('modalNftName').textContent = nft.name;
-            document.getElementById('modalNftValue').textContent = `${calculateAveragePrice(nft)} TON`;
-            document.getElementById('modalNftCollection').textContent = nft.collection;
+            modalTitle.textContent = '🎨 ВАШ NFT';
+            modalNftImage.src = nft.gif;
+            modalNftImage.onerror = function() {
+                this.src = fallbackGifs[Math.floor(Math.random() * fallbackGifs.length)];
+            };
+            modalNftName.textContent = nft.name;
+            modalNftValue.textContent = `${calculateAveragePrice(nft).toFixed(2)} TON`;
+            modalNftCollection.textContent = nft.collection;
             
-            // Изменяем заголовок для просмотра инвентаря
-            document.querySelector('.modal-content h2').textContent = '🎨 ВАШ NFT';
             nftModal.style.display = 'flex';
         }
 
         // Закрыть модальное окно
         function closeModal() {
             nftModal.style.display = 'none';
-            // Возвращаем оригинальный заголовок
-            document.querySelector('.modal-content h2').textContent = '🎉 ПОЗДРАВЛЯЕМ!';
+            modalTitle.textContent = '🎉 ПОЗДРАВЛЯЕМ!';
         }
 
         // Добавить запись в историю
@@ -1248,37 +1522,25 @@
             const now = new Date();
             const time = `${now.getHours().toString().padStart(2, '0')}:${now.getMinutes().toString().padStart(2, '0')}`;
             
-            if (type === 'launch') {
-                item.innerHTML = `
-                    <span>🚀 Запуск</span>
-                    <span>${bet} TON</span>
-                    <span>${time}</span>
-                `;
-            } else if (type === 'win') {
-                if (nft) {
-                    item.classList.add('nft');
-                    item.innerHTML = `
-                        <span>🎁 NFT + Выигрыш</span>
-                        <span>x${multiplier.toFixed(2)}</span>
-                        <span>+${win.toFixed(2)} TON</span>
-                        <span>${time}</span>
-                    `;
-                } else {
-                    item.innerHTML = `
-                        <span>💰 Выигрыш</span>
-                        <span>x${multiplier.toFixed(2)}</span>
-                        <span>+${win.toFixed(2)} TON</span>
-                        <span>${time}</span>
-                    `;
-                }
+            let icon = '🚀';
+            let text = `Запуск ${bet} TON`;
+            
+            if (type === 'win') {
+                icon = '💰';
+                text = `Выигрыш x${multiplier.toFixed(2)} +${win.toFixed(2)} TON`;
             } else if (type === 'loss') {
-                item.innerHTML = `
-                    <span>💥 Взрыв</span>
-                    <span>x${multiplier.toFixed(2)}</span>
-                    <span>-${bet} TON</span>
-                    <span>${time}</span>
-                `;
+                icon = '💥';
+                text = `Взрыв x${multiplier.toFixed(2)} -${bet} TON`;
+            } else if (type === 'nft') {
+                icon = '🎁';
+                text = `NFT +${win.toFixed(2)} TON`;
             }
+            
+            item.innerHTML = `
+                <span>${icon}</span>
+                <span>${text}</span>
+                <span style="font-size: 12px; color: #a0e7ff;">${time}</span>
+            `;
             
             historyList.insertBefore(item, historyList.firstChild);
             
@@ -1290,28 +1552,14 @@
             gameHistory.push({ type, bet, multiplier, win, nft, timestamp: now });
         }
 
-        // API для получения реальных NFT (имитация)
-        async function fetchRealNftData() {
-            try {
-                // В реальном приложении здесь был бы запрос к API маркетплейсов TON
-                // Для демо возвращаем нашу базу данных
-                return nftDatabase;
-            } catch (error) {
-                console.error('Ошибка загрузки NFT:', error);
-                return nftDatabase; // Возвращаем локальные данные в случае ошибки
-            }
-        }
-
-        // Обновить NFT данные через API
-        async function updateNftDataFromApi() {
-            const nfts = await fetchRealNftData();
-            // В реальном приложении здесь можно обновить цены из API
-            console.log('NFT данные загружены:', nfts.length, 'элементов');
-        }
-
         // Обработчики событий
         customBetInput.addEventListener('change', function() {
-            setBet(parseFloat(this.value));
+            const value = parseFloat(this.value);
+            if (!isNaN(value) && value >= 0.1 && value <= 1000) {
+                setBet(value);
+            } else {
+                this.value = betAmount;
+            }
         });
 
         customBetInput.addEventListener('input', function() {
@@ -1319,30 +1567,54 @@
             if (!isNaN(value) && value >= 0.1 && value <= 1000) {
                 betAmount = value;
                 updateBetButtons();
+                
+                // Показываем/скрываем NFT в зависимости от ставки
+                if (value >= 2) {
+                    if (!currentNft) selectRandomNft();
+                } else {
+                    nftGif.style.display = 'none';
+                    nftPlaceholder.style.display = 'flex';
+                    nftName.textContent = "NFT Preview";
+                    nftValue.textContent = "~ 0.00 TON";
+                    nftCollection.textContent = "Сделайте ставку от 2 TON";
+                }
             }
         });
 
         launchBtn.addEventListener('click', launchRocket);
         cashoutBtn.addEventListener('click', cashout);
 
-        // Добавление тестовых NFT в инвентарь
+        // Добавление тестовых NFT в инвентарь (Ctrl+I)
         document.addEventListener('keydown', function(e) {
             if (e.ctrlKey && e.key === 'i') {
-                // Ctrl+I для добавления тестового NFT
                 const testNft = nftDatabase[Math.floor(Math.random() * nftDatabase.length)];
-                addNftToInventory(testNft);
-                alert(`Добавлен тестовый NFT: ${testNft.name}`);
+                const addedNft = addNftToInventory(testNft);
+                showNftWinModal(addedNft, 0);
+                e.preventDefault();
             }
         });
 
         // Инициализация при загрузке
         window.onload = init;
         
-        // Обновление данных NFT каждые 5 минут
-        setInterval(updateNftDataFromApi, 5 * 60 * 1000);
+        // Создание фоновых частиц
+        function createBackgroundParticles() {
+            const bgAnimation = document.getElementById('bgAnimation');
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = `${Math.random() * 300 + 50}px`;
+                particle.style.height = particle.style.width;
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                particle.style.animationDelay = `${Math.random() * 15}s`;
+                particle.style.animationDuration = `${Math.random() * 20 + 10}s`;
+                particle.style.opacity = Math.random() * 0.1 + 0.05;
+                bgAnimation.appendChild(particle);
+            }
+        }
         
-        // Первоначальная загрузка данных
-        updateNftDataFromApi();
+        createBackgroundParticles();
     </script>
 </body>
 </html>
